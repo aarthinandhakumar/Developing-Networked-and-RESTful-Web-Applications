@@ -1,0 +1,29 @@
+<b>Results for {{ data.city }}, {{ data.state }}</b>
+<p></p>
+
+{{#if data.data.length}}
+    <table>
+        <tr>
+            <th>ZipCode</th>
+            <th>Population</th>
+        </tr>
+        {{#each data.data}}
+        <tr>
+            <td>
+                <a href="/zip/{{ this.zip }}" style="color: blue; text-decoration: underline;">{{ this.zip }}</a>
+            </td>
+            <td>{{ this.pop }}</td>
+        </tr>
+        {{/each}}
+    </table>
+{{else}}
+    <p>No results found for {{ data.city }}, {{ data.state }}</p>
+{{/if}}
+
+<div id="zip-details">
+    <!-- This div will be populated with detailed zip code information -->
+    {{#if zipData}}
+        <p>City: {{ zipData.city }}, State: {{ zipData.state }}, Population: {{ zipData.pop }}</p>
+        <p><a href="/city/{{ zipData.city }}/state/{{ zipData.state }}">Click here for all zip codes for {{ zipData.city }}, {{ zipData.state }}</a></p>
+    {{/if}}
+</div>

@@ -1,0 +1,9 @@
+<b>Zip Code</b> {{ data._id }}
+    <p></p>
+
+    {{#if data}}
+        <p>City: {{ data.city }}, State: {{ data.state }}, Population: {{ data.pop }}</p>
+        <p><a href="/city/{{ data.city }}/state/{{ data.state }}">Click here for all zip codes for {{ data.city }}, {{ data.state }}</a></p>
+    {{else}}
+        <p>No results found for the provided zip code.</p>
+    {{/if}}
